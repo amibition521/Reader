@@ -3,13 +3,26 @@ package com.amibtion.mvp.reader.api;
 import android.support.annotation.NonNull;
 
 import com.amibtion.mvp.reader.AndroidApplication;
+import com.amibtion.mvp.reader.api.bean.NewsDetailInfo;
+import com.amibtion.mvp.reader.api.bean.NewsInfo;
+import com.amibtion.mvp.reader.api.bean.PhotoInfo;
+import com.amibtion.mvp.reader.api.bean.PhotoSetInfo;
+import com.amibtion.mvp.reader.api.bean.SpecialInfo;
+import com.amibtion.mvp.reader.api.bean.WelfarePhotoInfo;
+import com.amibtion.mvp.reader.api.bean.WelfarePhotoList;
+import com.amibtion.mvp.reader.local.table.BeautyPhotoInfo;
+import com.amibtion.mvp.reader.local.table.VideoInfo;
 import com.amibtion.mvp.reader.utils.NetUtil;
+import com.amibtion.mvp.reader.utils.StringUtils;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.List;
+import java.util.Map;
+import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -24,6 +37,10 @@ import okio.Buffer;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by nieyuxin on 2017/3/19.
@@ -142,6 +159,187 @@ public class RetrofitService {
     }
 
     /************************************ API *******************************************/
+
+    /**
+     * 获取新闻列表
+     * @param newsId
+     * @param page
+     * @return
+     */
+    public static Observable<NewsInfo> getNewsList(String newsId,int page){
+        String type;
+        if (newsId.equals(HEAD_LINE_NEWS)){
+            type = "headline";
+        } else {
+            type = "list";
+        }
+        return sNewsService.getNewsList(type,newsId,page * INCREASE_PAGE)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(_flatMapNews(newsId));
+
+    }
+
+    /**
+     * 获取专题数据
+     * @param specialId
+     * @return
+     */
+    public static Observable<SpecialInfo> getSpecial(String specialId){
+        return sNewsService.getSpecial(specialId)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(_flatMapSpecial(specialId));
+    }
+
+    /**
+     * 获取新闻详情
+     * @param newsId
+     * @return
+     */
+    public static Observable<NewsDetailInfo> getNewsDetail(final String newsId){
+        return sNewsService.getNewsDetail(newsId)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(new Func1<Map<String, NewsDetailInfo>, Observable<NewsDetailInfo>>() {
+                    @Override
+                    public Observable<NewsDetailInfo> call(Map<String, NewsDetailInfo> newsDetailInfoMap) {
+                        return Observable.just(newsDetailInfoMap.get(newsId));
+                    }
+                });
+    }
+
+    /**
+     * 获取图集
+     * @param photoId
+     * @return
+     */
+    public static Observable<PhotoSetInfo> getPhotoSet(String photoId){
+        return sNewsService.getPhotoSet(StringUtils.clipPhotoSetId(photoId))
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * 获取更多图片列表
+     * @param setId
+     * @return
+     */
+    public static Observable<List<PhotoInfo>> getPhotoMoreList(String setId){
+        return sNewsService.getPhotoMoreList(setId)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * 获取美图女片
+     * @param page
+     * @return
+     */
+    public static Observable<List<BeautyPhotoInfo>> getBeautyPhoto(int page){
+        return sNewsService.getBeautyPhoto(page * INCREASE_PAGE)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(_flatMapPhotos());
+    }
+
+    /**
+     * 获取福利图片
+     * @param page
+     * @return
+     */
+    public static Observable<WelfarePhotoInfo> getWelfarePhoto(int page){
+        return sWelfareService.getWelfarePhoto(page)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(_flatMapWelfarePhotos());
+    }
+
+    /**
+     * 获取视频列表
+     * @param videoId
+     * @param page
+     * @return
+     */
+    public static Observable<List<VideoInfo>> getVideoList(String videoId,int page){
+        return sNewsService.getVideoList(videoId,page * INCREASE_PAGE)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(_flatMapVideo(videoId));
+    }
+
+    /******************************************* 转换器 **********************************************/
+    /**
+     * 类型转换
+     * @param typeStr 新闻类型
+     * @return
+     */
+    private static Func1<Map<String,List<NewsInfo>>,Observable<NewsInfo>> _flatMapNews(final String typeStr){
+        return new Func1<Map<String, List<NewsInfo>>, Observable<NewsInfo>>() {
+            @Override
+            public Observable<NewsInfo> call(Map<String, List<NewsInfo>> newsListMap) {
+                return Observable.from(newsListMap.get(typeStr));
+            }
+        };
+    }
+
+    private static Func1<Map<String,List<VideoInfo>>,Observable<List<VideoInfo>>>  _flatMapVideo(final String typeStr){
+        return new Func1<Map<String, List<VideoInfo>>, Observable<List<VideoInfo>>>() {
+            @Override
+            public Observable<List<VideoInfo>> call(Map<String, List<VideoInfo>> newsListMap) {
+                return Observable.just(newsListMap.get(typeStr));
+            }
+        };
+    }
+
+    private static Func1<Map<String,SpecialInfo>,Observable<SpecialInfo>> _flatMapSpecial(final String specialId){
+        return new Func1<Map<String, SpecialInfo>, Observable<SpecialInfo>>() {
+            @Override
+            public Observable<SpecialInfo> call(Map<String, SpecialInfo> stringSpecialInfoMap) {
+                return Observable.just(stringSpecialInfoMap.get(specialId));
+            }
+        };
+    }
+
+    private static Func1<Map<String,List<BeautyPhotoInfo>>,Observable<List<BeautyPhotoInfo>>> _flatMapPhotos(){
+        return new Func1<Map<String, List<BeautyPhotoInfo>>, Observable<List<BeautyPhotoInfo>>>() {
+            @Override
+            public Observable<List<BeautyPhotoInfo>> call(Map<String, List<BeautyPhotoInfo>> newsListMap) {
+                return Observable.just(newsListMap.get("美女"));
+            }
+        };
+    }
+
+    private static Func1<WelfarePhotoList,Observable<WelfarePhotoInfo>> _flatMapWelfarePhotos() {
+        return new Func1<WelfarePhotoList, Observable<WelfarePhotoInfo>>() {
+            @Override
+            public Observable<WelfarePhotoInfo> call(WelfarePhotoList welfarePhotoList) {
+                if (welfarePhotoList.getResults().size() == 0){
+                    return Observable.empty();
+                }
+                return Observable.from(welfarePhotoList.getResults());
+            }
+        };
+    }
+
+
+
 
 
 }
