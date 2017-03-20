@@ -8,12 +8,13 @@ import com.dl7.recycler.adapter.BaseQuickAdapter;
 
 import org.greenrobot.greendao.annotation.Entity;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
  * Created by Administrator on 2017/3/20.
  */
-@Entity
+@Module
 public class NewsListModule {
 
     private final NewsListFragment mNewsListView;
@@ -33,6 +34,6 @@ public class NewsListModule {
     @PerFragment
     @Provides
     public BaseQuickAdapter provideAdapter() {
-        return new NewsMultiListAdapter(mNewsListView.getContext())
+        return new NewsMultiListAdapter(mNewsListView.getContext());
     }
 }

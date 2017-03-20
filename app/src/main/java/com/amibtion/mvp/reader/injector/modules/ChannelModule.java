@@ -13,10 +13,10 @@ import dagger.Provides;
  * Created by Administrator on 2017/3/20.
  */
 @Module
-public class CHannelModule {
+public class ChannelModule {
     private final ChannelActivity mView;
 
-    public CHannelModule(ChannelActivity mView) {
+    public ChannelModule(ChannelActivity mView) {
         this.mView = mView;
     }
     @Provides

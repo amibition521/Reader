@@ -5,12 +5,13 @@ import com.amibtion.mvp.reader.module.base.IBasePresenter;
 
 import org.greenrobot.greendao.annotation.Entity;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
  * Created by Administrator on 2017/3/20.
  */
-@Entity
+@Module
 public class NewsArticleModule {
 
     private final String mNewsId;

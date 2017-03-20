@@ -10,6 +10,7 @@ import android.support.multidex.MultiDex;
 import com.amibtion.mvp.reader.api.RetrofitService;
 import com.amibtion.mvp.reader.engine.DownloaderWrapper;
 import com.amibtion.mvp.reader.injector.components.ApplicationComponent;
+import com.amibtion.mvp.reader.injector.modules.ApplicationModule;
 import com.amibtion.mvp.reader.local.table.DaoMaster;
 import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.rxbus.RxBus;

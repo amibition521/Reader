@@ -2,6 +2,7 @@ package com.amibtion.mvp.reader.injector.components;
 
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.injector.PerFragment;
+import com.amibtion.mvp.reader.injector.modules.LovePhotoModule;
 
 import dagger.Component;
 
