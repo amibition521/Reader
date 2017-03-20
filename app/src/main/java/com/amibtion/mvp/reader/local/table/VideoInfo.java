@@ -5,12 +5,14 @@ import android.os.Parcelable;
 
 import com.dl7.downloaderlib.model.DownloadStatus;
 
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by nieyuxin on 2017/3/17.
  */
-
+@Entity
 public class VideoInfo implements Parcelable {
 
     /**
@@ -238,7 +240,7 @@ public class VideoInfo implements Parcelable {
 
     public VideoInfo() {
     }
-    @Generated (hash = 1048022349)
+    @Generated(hash = 1048022349)
     public VideoInfo(String vid, String mp4Hd_url, String cover, String title, String sectiontitle, String mp4_url, int length, String m3u8Hd_url, String ptime, String m3u8_url, String videoUrl, long totalSize, long loadedSize, int downloadStatus, long downloadSpeed, boolean isCollect) {
         this.vid = vid;
         this.mp4Hd_url = mp4Hd_url;
@@ -297,5 +299,13 @@ public class VideoInfo implements Parcelable {
     @Override
     public int hashCode() {
         return vid != null ? vid.hashCode() : 0;
+    }
+
+    public boolean getIsCollect() {
+        return this.isCollect;
+    }
+
+    public void setIsCollect(boolean isCollect) {
+        this.isCollect = isCollect;
     }
 }

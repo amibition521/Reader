@@ -7,7 +7,11 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.multidex.MultiDex;
 
+import com.amibtion.mvp.reader.api.RetrofitService;
+import com.amibtion.mvp.reader.engine.DownloaderWrapper;
 import com.amibtion.mvp.reader.injector.components.ApplicationComponent;
+import com.amibtion.mvp.reader.local.table.DaoMaster;
+import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 import com.amibtion.mvp.reader.utils.DownloadUtils;
 import com.amibtion.mvp.reader.utils.PreferencesUtils;
@@ -118,7 +122,7 @@ public class AndroidApplication extends DefaultApplicationLike {
 
         RetrofitService.init();
         ToastUtils.init(getApplication());
-        DownloadWrapper.init(mRxBus,mDaoSession.getVideoInfoDao());
+        DownloaderWrapper.init(mRxBus,mDaoSession.getVideoInfoDao());
         FileDownloader.init(getApplication());
         DownloadConfig config = new DownloadConfig.Builder().setDownloadDir(PreferencesUtils.getSavePath(getApplication()) + File.separator + "video/").build();
         FileDownloader.setConfig(config);

@@ -3,13 +3,15 @@ package com.amibtion.mvp.reader.local.table;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by nieyuxin on 2017/3/17.
+ * 美女图片
  */
-
+@Entity
 public class BeautyPhotoInfo implements Parcelable {
 
     /**
@@ -133,7 +135,8 @@ public class BeautyPhotoInfo implements Parcelable {
     }
 
     @Generated(hash = 215652306)
-    public BeautyPhotoInfo (String imgsrc,String pixel,String title,String docid,boolean isLove,boolean isPraise,boolean isDownload){
+    public BeautyPhotoInfo(String imgsrc, String pixel, String docid, String title, boolean isLove, boolean isPraise,
+            boolean isDownload) {
         this.imgsrc = imgsrc;
         this.pixel = pixel;
         this.docid = docid;
@@ -141,6 +144,10 @@ public class BeautyPhotoInfo implements Parcelable {
         this.isLove = isLove;
         this.isPraise = isPraise;
         this.isDownload = isDownload;
+    }
+
+    @Generated(hash = 827125854)
+    public BeautyPhotoInfo() {
     }
 
     public static final Creator<BeautyPhotoInfo> CREATOR = new Creator<BeautyPhotoInfo>() {
@@ -170,5 +177,29 @@ public class BeautyPhotoInfo implements Parcelable {
     @Override
     public int hashCode() {
         return imgsrc.hashCode();
+    }
+
+    public boolean getIsDownload() {
+        return this.isDownload;
+    }
+
+    public void setIsDownload(boolean isDownload) {
+        this.isDownload = isDownload;
+    }
+
+    public boolean getIsPraise() {
+        return this.isPraise;
+    }
+
+    public void setIsPraise(boolean isPraise) {
+        this.isPraise = isPraise;
+    }
+
+    public boolean getIsLove() {
+        return this.isLove;
+    }
+
+    public void setIsLove(boolean isLove) {
+        this.isLove = isLove;
     }
 }
