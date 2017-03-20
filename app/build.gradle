@@ -24,6 +24,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    greendao{
+        schemaVersion 4
+//        daoPackage'com.amibition.mvp.reader'
+//        targetGenDir 'src/main/java'
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/java-gen']
+        }
+    }
+
 }
 
 dependencies {
@@ -66,7 +78,8 @@ dependencies {
     // logger
     compile 'com.orhanobut:logger:1.15'
     // greendao  数据库
-    compile 'org.greenrobot:greendao:3.2.0'
+    compile 'org.greenrobot:greendao:3.1.0'
+    compile 'org.greenrobot:greendao-generator:3.1.0'
     // circleimageview
     compile 'de.hdodenhof:circleimageview:2.1.0'
     // slider

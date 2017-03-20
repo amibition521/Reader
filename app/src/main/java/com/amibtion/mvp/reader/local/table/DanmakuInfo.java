@@ -2,12 +2,13 @@ package com.amibtion.mvp.reader.local.table;
 
 import com.dl7.player.danmaku.BaseDanmakuData;
 
+import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by nieyuxin on 2017/3/17.
  */
-
+@Entity
 public class DanmakuInfo  extends BaseDanmakuData {
 
     private int type;

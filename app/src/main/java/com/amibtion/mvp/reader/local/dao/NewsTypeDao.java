@@ -2,7 +2,9 @@ package com.amibtion.mvp.reader.local.dao;
 
 import android.content.Context;
 
+import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.local.table.NewsTypeInfo;
+import com.amibtion.mvp.reader.local.table.NewsTypeInfoDao;
 import com.amibtion.mvp.reader.utils.AssetsHelper;
 import com.amibtion.mvp.reader.utils.GsonHelper;
 

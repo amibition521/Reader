@@ -4,12 +4,13 @@ import android.app.Activity;
 
 import com.amibtion.mvp.reader.injector.PerActivity;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
  * Created by nieyuxin on 2017/3/12.
  */
-
+@Module
 public class ActivityModule {
 
     private final Activity mActivity;

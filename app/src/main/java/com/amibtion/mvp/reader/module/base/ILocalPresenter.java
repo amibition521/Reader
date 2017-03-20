@@ -7,7 +7,7 @@ import java.util.List;
  * 提供本地数据库操作的 Presenter
  */
 
-public interface ILoadPresenter<T> extends IBasePresenter {
+public interface ILocalPresenter<T> extends IBasePresenter {
 
     void insert(T data);
 
