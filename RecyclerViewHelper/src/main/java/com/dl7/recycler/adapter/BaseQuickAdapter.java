@@ -573,7 +573,7 @@ public abstract class BaseQuickAdapter<T> extends RecyclerView.Adapter<RecyclerV
      *
      * @param listener The callback that will be invoked.
      */
-    public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
+    public void setOnItemLongClickListener(OnRecyclerViewItemClickListener listener) {
         this.mItemClickListener = listener;
     }
 
@@ -583,7 +583,7 @@ public abstract class BaseQuickAdapter<T> extends RecyclerView.Adapter<RecyclerV
      *
      * @param listener The callback that will run
      */
-    public void setOnItemLongClickListener(OnRecyclerViewItemLongClickListener listener) {
+    public void setOnItemLClickListener(OnRecyclerViewItemLongClickListener listener) {
         this.mItemLongClickListener = listener;
     }
 

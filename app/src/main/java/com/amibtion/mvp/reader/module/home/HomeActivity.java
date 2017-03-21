@@ -135,7 +135,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void _initDrawerLayout(DrawerLayout drawerLayout,NavigationView navView){
-        if (Build.VERSION.SDK_INT > = Build.VERSION_CODES.KITKAT){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
             //将侧边栏顶部延伸至status bar
