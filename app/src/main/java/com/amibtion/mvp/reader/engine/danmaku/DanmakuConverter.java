@@ -1,6 +1,6 @@
-package com.dl7.mvp.engine.danmaku;
+package com.amibtion.mvp.reader.engine.danmaku;
 
-import com.dl7.mvp.local.table.DanmakuInfo;
+import com.amibtion.mvp.reader.local.table.DanmakuInfo;
 import com.dl7.player.danmaku.BaseDanmakuConverter;
 
 import master.flame.danmaku.danmaku.model.BaseDanmaku;

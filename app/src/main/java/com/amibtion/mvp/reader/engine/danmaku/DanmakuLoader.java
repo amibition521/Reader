@@ -1,4 +1,4 @@
-package com.dl7.mvp.engine.danmaku;
+package com.amibtion.mvp.reader.engine.danmaku;
 
 import android.net.Uri;
 

@@ -4,6 +4,8 @@ import com.amibtion.mvp.reader.adapter.VideoLoveAdapter;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.module.base.ILocalPresenter;
+import com.amibtion.mvp.reader.module.manage.love.video.LoveVideoFragment;
+import com.amibtion.mvp.reader.module.manage.love.video.LoveVideoPresenter;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 

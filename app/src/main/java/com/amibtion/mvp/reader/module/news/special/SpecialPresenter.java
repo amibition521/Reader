@@ -1,12 +1,11 @@
-package com.dl7.mvp.module.news.special;
+package com.amibtion.mvp.reader.module.news.special;
 
-import com.dl7.mvp.api.RetrofitService;
-import com.dl7.mvp.api.bean.NewsItemInfo;
-import com.dl7.mvp.api.bean.SpecialInfo;
-import com.dl7.mvp.api.bean.SpecialInfo.TopicsEntity;
-import com.dl7.mvp.adapter.item.SpecialItem;
-import com.dl7.mvp.module.base.IBasePresenter;
-import com.dl7.mvp.widget.EmptyLayout;
+import com.amibtion.mvp.reader.adapter.item.SpecialItem;
+import com.amibtion.mvp.reader.api.RetrofitService;
+import com.amibtion.mvp.reader.api.bean.NewsItemInfo;
+import com.amibtion.mvp.reader.api.bean.SpecialInfo;
+import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.widget.EmptyLayout;
 import com.orhanobut.logger.Logger;
 
 import java.util.List;
@@ -89,30 +88,30 @@ public class SpecialPresenter implements IBasePresenter {
         final SpecialItem[] specialItems = new SpecialItem[specialBean.getTopics().size() + 1];
         return Observable.from(specialBean.getTopics())
                     // 获取头部
-                    .doOnNext(new Action1<TopicsEntity>() {
+                    .doOnNext(new Action1<SpecialInfo.TopicsEntity>() {
                         @Override
-                        public void call(TopicsEntity topicsEntity) {
+                        public void call(SpecialInfo.TopicsEntity topicsEntity) {
                             specialItems[topicsEntity.getIndex() - 1] = new SpecialItem(true,
                                     topicsEntity.getIndex() + "/" + specialItems.length + " " + topicsEntity.getTname());
                         }
                     })
                     // 排序
-                    .toSortedList(new Func2<TopicsEntity, TopicsEntity, Integer>() {
+                    .toSortedList(new Func2<SpecialInfo.TopicsEntity, SpecialInfo.TopicsEntity, Integer>() {
                         @Override
-                        public Integer call(TopicsEntity topicsEntity, TopicsEntity topicsEntity2) {
+                        public Integer call(SpecialInfo.TopicsEntity topicsEntity, SpecialInfo.TopicsEntity topicsEntity2) {
                             return topicsEntity.getIndex() - topicsEntity2.getIndex();
                         }
                     })
                     // 拆分
-                    .flatMap(new Func1<List<TopicsEntity>, Observable<TopicsEntity>>() {
+                    .flatMap(new Func1<List<SpecialInfo.TopicsEntity>, Observable<SpecialInfo.TopicsEntity>>() {
                         @Override
-                        public Observable<TopicsEntity> call(List<TopicsEntity> topicsEntities) {
+                        public Observable<SpecialInfo.TopicsEntity> call(List<SpecialInfo.TopicsEntity> topicsEntities) {
                             return Observable.from(topicsEntities);
                         }
                     })
-                    .flatMap(new Func1<TopicsEntity, Observable<SpecialItem>>() {
+                    .flatMap(new Func1<SpecialInfo.TopicsEntity, Observable<SpecialItem>>() {
                         @Override
-                        public Observable<SpecialItem> call(TopicsEntity topicsEntity) {
+                        public Observable<SpecialItem> call(SpecialInfo.TopicsEntity topicsEntity) {
                             // 转换并在每个列表项增加头部
                             return Observable.from(topicsEntity.getDocs())
                                     .map(new Func1<NewsItemInfo, SpecialItem>() {

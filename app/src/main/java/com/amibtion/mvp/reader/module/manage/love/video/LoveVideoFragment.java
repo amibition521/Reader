@@ -1,16 +1,19 @@
 package com.amibtion.mvp.reader.module.manage.love.video;
 
 import android.content.DialogInterface;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.injector.components.DaggerLoveVideoComponent;
 import com.amibtion.mvp.reader.injector.modules.LoveVideoModule;
 import com.amibtion.mvp.reader.local.table.VideoInfo;
 import com.amibtion.mvp.reader.module.base.BaseFragment;
 import com.amibtion.mvp.reader.module.base.ILocalPresenter;
 import com.amibtion.mvp.reader.module.base.ILocalView;
+import com.amibtion.mvp.reader.module.video.player.VideoPlayerActivity;
 import com.amibtion.mvp.reader.utils.DialogHelper;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 import com.dl7.recycler.helper.RecyclerViewHelper;
@@ -66,7 +69,7 @@ public class LoveVideoFragment extends BaseFragment<ILocalPresenter> implements 
     protected void initInjector() {
         DaggerLoveVideoComponent.builder()
                 .applicationComponent(getAppComponent())
-                .loveVideoModules(new LoveVideoModule(this))
+                .loveVideoModule(new LoveVideoModule(this))
                 .build()
                 .inject(this);
     }
@@ -80,7 +83,7 @@ public class LoveVideoFragment extends BaseFragment<ILocalPresenter> implements 
             @Override
             public void onItemClick(View view, int position) {
                 mCurIndex = position;
-                VideoPlayerActivity.launchForResult(LoveVideoFragment.this,mAdapter.getItem(position));
+                VideoPlayerActivity.launchForResult(LoveVideoFragment.this, (VideoInfo) mAdapter.getItem(position));
             }
         });
         mAdapter.setOnItemLongClickListener(new OnRecyclerViewItemLongClickListener() {

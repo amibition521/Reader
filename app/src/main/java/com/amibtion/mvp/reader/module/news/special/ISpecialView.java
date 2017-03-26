@@ -1,8 +1,9 @@
-package com.dl7.mvp.module.news.special;
+package com.amibtion.mvp.reader.module.news.special;
 
-import com.dl7.mvp.api.bean.SpecialInfo;
-import com.dl7.mvp.adapter.item.SpecialItem;
-import com.dl7.mvp.module.base.IBaseView;
+
+import com.amibtion.mvp.reader.adapter.item.SpecialItem;
+import com.amibtion.mvp.reader.api.bean.SpecialInfo;
+import com.amibtion.mvp.reader.module.base.IBaseView;
 
 import java.util.List;
 

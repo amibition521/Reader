@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.injector.components.DaggerVideoCacheComponent;
 import com.amibtion.mvp.reader.injector.modules.VideoCacheModule;
 import com.amibtion.mvp.reader.local.table.VideoInfo;
-import com.amibtion.mvp.reader.module.base.BaseVideoDlFragment;
-import com.amibtion.mvp.reader.module.base.ILocalPresenter;
+import com.amibtion.mvp.reader.module.base.BaseVideoDLFragment;
 import com.amibtion.mvp.reader.module.base.ILocalView;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
 import com.amibtion.mvp.reader.module.manage.download.DownloadActivity;
@@ -25,7 +25,7 @@ import rx.functions.Action1;
  * Created by nieyuxin on 2017/3/23.
  */
 
-public class VideoCacheFragment extends BaseVideoDlFragment<IRxBusPresenter> implements ILocalView<VideoInfo> {
+public class VideoCacheFragment extends BaseVideoDLFragment<IRxBusPresenter> implements ILocalView<VideoInfo> {
 
     @BindView(R.id.default_bg)
     TextView mDefaultBg;

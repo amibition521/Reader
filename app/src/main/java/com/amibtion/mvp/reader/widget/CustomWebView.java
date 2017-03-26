@@ -15,7 +15,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.dl7.mvp.R;
+import com.amibtion.mvp.reader.R;
 
 
 /**

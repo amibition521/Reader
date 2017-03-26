@@ -2,6 +2,7 @@ package com.amibtion.mvp.reader.injector.components;
 
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.injector.modules.PhotoSetModule;
+import com.amibtion.mvp.reader.module.news.photoset.PhotoSetActivity;
 
 import dagger.Component;
 

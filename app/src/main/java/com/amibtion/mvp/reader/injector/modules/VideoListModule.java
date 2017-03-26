@@ -3,6 +3,8 @@ package com.amibtion.mvp.reader.injector.modules;
 import com.amibtion.mvp.reader.adapter.VideoListAdapter;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.module.video.list.VideoListFragment;
+import com.amibtion.mvp.reader.module.video.list.VideoListPresenter;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 
 import dagger.Module;

@@ -1,7 +1,8 @@
-package com.dl7.mvp.module.news.photoset;
+package com.amibtion.mvp.reader.module.news.photoset;
 
-import com.dl7.mvp.api.bean.PhotoSetInfo;
-import com.dl7.mvp.module.base.IBaseView;
+
+import com.amibtion.mvp.reader.api.bean.PhotoSetInfo;
+import com.amibtion.mvp.reader.module.base.IBaseView;
 
 /**
  * Created by long on 2016/8/29.

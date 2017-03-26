@@ -1,13 +1,15 @@
-package com.dl7.mvp.module.news.photoset;
+package com.amibtion.mvp.reader.module.news.photoset;
 
-import com.dl7.mvp.api.RetrofitService;
-import com.dl7.mvp.api.bean.PhotoSetInfo;
-import com.dl7.mvp.module.base.IBasePresenter;
-import com.dl7.mvp.widget.EmptyLayout;
+
+import com.amibtion.mvp.reader.api.RetrofitService;
+import com.amibtion.mvp.reader.api.bean.PhotoSetInfo;
+import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.widget.EmptyLayout;
 import com.orhanobut.logger.Logger;
 
 import rx.Subscriber;
 import rx.functions.Action0;
+
 
 /**
  * Created by long on 2016/8/29.

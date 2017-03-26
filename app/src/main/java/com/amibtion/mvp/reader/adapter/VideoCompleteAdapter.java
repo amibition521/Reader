@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.local.table.VideoInfo;
+import com.amibtion.mvp.reader.module.video.fullscreen.VideoFullscreenActivity;
+import com.amibtion.mvp.reader.module.video.player.VideoPlayerActivity;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 import com.amibtion.mvp.reader.utils.DefIconFactory;
 import com.amibtion.mvp.reader.utils.ImageLoader;

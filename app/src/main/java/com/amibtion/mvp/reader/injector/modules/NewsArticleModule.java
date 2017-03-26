@@ -2,6 +2,8 @@ package com.amibtion.mvp.reader.injector.modules;
 
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.module.news.article.NewsArticleActivity;
+import com.amibtion.mvp.reader.module.news.article.NewsArticlePresenter;
 
 import org.greenrobot.greendao.annotation.Entity;
 
@@ -17,7 +19,7 @@ public class NewsArticleModule {
     private final String mNewsId;
     private final NewsArticleActivity mView;
 
-    public NewsArticleModule(String mNewsId, NewsArticleActivity mView) {
+    public NewsArticleModule( NewsArticleActivity mView,String mNewsId) {
         this.mNewsId = mNewsId;
         this.mView = mView;
     }

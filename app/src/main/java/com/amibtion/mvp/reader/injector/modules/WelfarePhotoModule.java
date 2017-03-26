@@ -4,6 +4,8 @@ import com.amibtion.mvp.reader.adapter.WelfarePhotoAdapter;
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.module.photo.welfare.WelfareListFragment;
+import com.amibtion.mvp.reader.module.photo.welfare.WelfareListPresenter;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 
 import dagger.Module;
@@ -24,7 +26,7 @@ public class WelfarePhotoModule {
     @PerFragment
     @Provides
     public IBasePresenter providePresenter() {
-        return new WelfarePhotoPresenter(mView);
+        return new WelfareListPresenter(mView);
     }
 
     @PerFragment

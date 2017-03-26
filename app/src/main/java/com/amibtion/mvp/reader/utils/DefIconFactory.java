@@ -1,6 +1,7 @@
 package com.amibtion.mvp.reader.utils;
 
-import com.dl7.mvp.R;
+
+import com.amibtion.mvp.reader.R;
 
 import java.util.Random;
 

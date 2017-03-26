@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
-import com.dl7.mvp.R;
+import com.amibtion.mvp.reader.R;
 import com.dl7.tag.TagLayout;
 import com.dl7.tag.TagView;
 import com.flyco.dialog.utils.CornerUtils;

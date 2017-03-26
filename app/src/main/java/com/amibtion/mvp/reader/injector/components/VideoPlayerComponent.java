@@ -3,6 +3,7 @@ package com.amibtion.mvp.reader.injector.components;
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.injector.modules.VideoPlayerModule;
+import com.amibtion.mvp.reader.module.video.player.VideoPlayerActivity;
 
 import dagger.Component;
 

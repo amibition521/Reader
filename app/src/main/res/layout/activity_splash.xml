@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dl7.mvp.module.home.SplashActivity">
+    tools:context="com.amibtion.mvp.reader.module.home.SplashActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_github"/>
 
-    <com.dl7.mvp.widget.SimpleButton
+    <com.amibtion.mvp.reader.widget.SimpleButton
         android:id="@+id/sb_skip"
         android:layout_width="80dp"
         android:layout_height="wrap_content"

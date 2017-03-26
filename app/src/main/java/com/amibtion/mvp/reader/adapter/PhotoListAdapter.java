@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.api.bean.PhotoInfo;
+import com.amibtion.mvp.reader.module.news.photoset.PhotoSetActivity;
 import com.amibtion.mvp.reader.utils.DefIconFactory;
 import com.amibtion.mvp.reader.utils.ImageLoader;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
@@ -50,7 +51,7 @@ public class PhotoListAdapter extends BaseQuickAdapter<PhotoInfo> {
         holder.getConvertView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PhotoSetActivty.launch(mContext,_mergePhotoId(item.getSetid()));
+                PhotoSetActivity.launch(mContext,_mergePhotoId(item.getSetid()));
             }
         });
     }

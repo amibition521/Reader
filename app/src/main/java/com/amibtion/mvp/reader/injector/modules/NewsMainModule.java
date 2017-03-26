@@ -4,6 +4,8 @@ import com.amibtion.mvp.reader.adapter.ViewPagerAdapter;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
+import com.amibtion.mvp.reader.module.news.main.NewsMainFragment;
+import com.amibtion.mvp.reader.module.news.main.NewsMainPresenter;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 
 import dagger.Module;
@@ -29,7 +31,7 @@ public class NewsMainModule {
 
     @PerFragment
     @Provides
-    public ViewPagerAdapter provideViewAdapter() {
+    public ViewPagerAdapter provideViewPagerAdapter() {
         return new ViewPagerAdapter(mView.getChildFragmentManager());
     }
 }

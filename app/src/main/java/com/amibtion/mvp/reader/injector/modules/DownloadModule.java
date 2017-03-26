@@ -3,6 +3,8 @@ package com.amibtion.mvp.reader.injector.modules;
 import com.amibtion.mvp.reader.adapter.ViewPagerAdapter;
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
+import com.amibtion.mvp.reader.module.manage.download.DownloadActivity;
+import com.amibtion.mvp.reader.module.manage.download.DownloadPresenter;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 
 import dagger.Module;

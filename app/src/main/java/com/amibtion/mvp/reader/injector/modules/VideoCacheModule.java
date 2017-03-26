@@ -5,6 +5,8 @@ import com.amibtion.mvp.reader.adapter.VideoCacheAdapter;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
+import com.amibtion.mvp.reader.module.manage.download.cache.VideoCacheFragment;
+import com.amibtion.mvp.reader.module.manage.download.cache.VideoCachePresenter;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 
 import dagger.Module;

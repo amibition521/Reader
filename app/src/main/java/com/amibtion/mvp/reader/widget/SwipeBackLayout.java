@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.dl7.mvp.R;
+import com.amibtion.mvp.reader.R;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

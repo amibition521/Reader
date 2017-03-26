@@ -1,7 +1,8 @@
 package com.amibtion.mvp.reader.injector.components;
 
 import com.amibtion.mvp.reader.injector.PerFragment;
-import com.amibtion.mvp.reader.local.table.VideoInfo;
+import com.amibtion.mvp.reader.injector.modules.VideoCompleteModule;
+import com.amibtion.mvp.reader.module.manage.download.complete.VideoCompleteFragment;
 
 import dagger.Component;
 
@@ -11,5 +12,5 @@ import dagger.Component;
 @PerFragment
 @Component(dependencies = ApplicationComponent.class,modules = VideoCompleteModule.class)
 public interface VideoCompleteComponent {
-    void inject(VideoCacheFragment fragment);
+    void inject(VideoCompleteFragment fragment);
 }

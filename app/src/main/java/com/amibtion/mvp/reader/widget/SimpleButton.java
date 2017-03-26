@@ -15,8 +15,8 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.dl7.mvp.R;
-import com.dl7.mvp.utils.MeasureUtils;
+import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.utils.MeasureUtils;
 
 
 /**

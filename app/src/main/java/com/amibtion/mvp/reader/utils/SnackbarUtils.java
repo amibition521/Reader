@@ -5,8 +5,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 
-import com.dl7.mvp.R;
-import com.dl7.mvp.module.manage.download.DownloadActivity;
+import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.module.manage.download.DownloadActivity;
 
 /**
  * Created by long on 2016/12/29.

@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.Switch;
 
 import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.engine.DownloaderWrapper;
 import com.amibtion.mvp.reader.local.table.VideoInfo;
+import com.amibtion.mvp.reader.module.video.player.VideoPlayerActivity;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 import com.amibtion.mvp.reader.utils.DefIconFactory;
 import com.amibtion.mvp.reader.utils.ImageLoader;

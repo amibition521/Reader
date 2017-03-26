@@ -4,13 +4,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.injector.components.DaggerVideoCompleteComponent;
 import com.amibtion.mvp.reader.injector.modules.VideoCompleteModule;
 import com.amibtion.mvp.reader.local.table.VideoInfo;
-import com.amibtion.mvp.reader.module.base.BaseVideoDlFragment;
+import com.amibtion.mvp.reader.module.base.BaseVideoDLFragment;
 import com.amibtion.mvp.reader.module.base.ILocalView;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
 import com.amibtion.mvp.reader.module.manage.download.DownloadActivity;
-import com.amibtion.mvp.reader.rxbus.event.VideoEvent;
 import com.dl7.recycler.helper.RecyclerViewHelper;
 import com.dl7.recycler.listener.OnRemoveDataListener;
 
@@ -24,10 +24,11 @@ import rx.functions.Action1;
  * Created by nieyuxin on 2017/3/23.
  */
 
-public class VideoCompleteFragment extends BaseVideoDlFragment<IRxBusPresenter> implements ILocalView<VideoInfo> {
+public class VideoCompleteFragment extends BaseVideoDLFragment<IRxBusPresenter> implements ILocalView<VideoInfo> {
 
     @BindView(R.id.default_bg)
     TextView mDefaultBg;
+
 
     @Override
     public void loadData(List<VideoInfo> dataList) {

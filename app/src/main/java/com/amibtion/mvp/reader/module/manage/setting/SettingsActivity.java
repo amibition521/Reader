@@ -14,13 +14,13 @@ import butterknife.BindView;
  * Created by nieyuxin on 2017/3/21.
  */
 
-public class SettingActivity extends BaseSwipeBackActivity {
+public class SettingsActivity extends BaseSwipeBackActivity {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     public  static void launch(Context context){
-        Intent intent = new Intent(context,SettingActivity.class);
+        Intent intent = new Intent(context,SettingsActivity.class);
         context.startActivity(intent);
         ((Activity)context).overridePendingTransition(R.anim.slide_right_entry,R.anim.hold);
     }
@@ -41,7 +41,7 @@ public class SettingActivity extends BaseSwipeBackActivity {
 
     @Override
     protected void updateViews(boolean isRefresh) {
-        getFragmentManager().beginTransaction().replace(R.id.settings_view,new SettingFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.settings_view,new SettingsFragment()).commit();
     }
 
     @Override

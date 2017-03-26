@@ -3,6 +3,8 @@ package com.amibtion.mvp.reader.injector.modules;
 import com.amibtion.mvp.reader.adapter.BeautyPhotoAdapter;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.module.photo.beauty.BeautyListFragment;
+import com.amibtion.mvp.reader.module.photo.beauty.BeautyListPresenter;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 
 import dagger.Module;
@@ -26,7 +28,7 @@ public class BeautyListModule {
     }
     @PerFragment
     @Provides
-    public BaseQuickAdapter providerAdapter() {
+    public BaseQuickAdapter provideAdapter() {
         return new BeautyPhotoAdapter(mView.getContext());
     }
 

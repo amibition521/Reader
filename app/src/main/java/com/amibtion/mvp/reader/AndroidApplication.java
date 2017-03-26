@@ -10,7 +10,9 @@ import android.support.multidex.MultiDex;
 import com.amibtion.mvp.reader.api.RetrofitService;
 import com.amibtion.mvp.reader.engine.DownloaderWrapper;
 import com.amibtion.mvp.reader.injector.components.ApplicationComponent;
+import com.amibtion.mvp.reader.injector.components.DaggerApplicationComponent;
 import com.amibtion.mvp.reader.injector.modules.ApplicationModule;
+import com.amibtion.mvp.reader.local.dao.NewsTypeDao;
 import com.amibtion.mvp.reader.local.table.DaoMaster;
 import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.rxbus.RxBus;
@@ -93,9 +95,6 @@ public class AndroidApplication extends DefaultApplicationLike {
         _initConfig();
     }
 
-    public static ApplicationComponent getsAppComponent() {
-        return sAppComponent;
-    }
 
     public static Context getContext(){
         return sContext;
@@ -111,8 +110,8 @@ public class AndroidApplication extends DefaultApplicationLike {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getApplication(),DB_NAME);
         Database database = helper.getWritableDb();
         mDaoSession = new DaoMaster(database).newSession();
-        NewsTyepDao.updateLocationData(getApplication(),mDaoSession);
-        DownloadUtils.init(mDaoSession.getBeautyPhotoInfoDao);
+        NewsTypeDao.updateLocalData(getApplication(),mDaoSession);
+        DownloadUtils.init(mDaoSession.getBeautyPhotoInfoDao());
     }
 
     private void _initConfig(){
@@ -128,6 +127,14 @@ public class AndroidApplication extends DefaultApplicationLike {
         DownloadConfig config = new DownloadConfig.Builder().setDownloadDir(PreferencesUtils.getSavePath(getApplication()) + File.separator + "video/").build();
         FileDownloader.setConfig(config);
 
-
     }
+
+    /**
+     * 使用Tinker生成Application，这里改成静态调用
+     * @return
+     */
+    public static ApplicationComponent getAppComponent() {
+        return sAppComponent;
+    }
+
 }

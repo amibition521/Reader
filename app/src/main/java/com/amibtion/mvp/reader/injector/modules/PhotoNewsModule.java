@@ -3,6 +3,8 @@ package com.amibtion.mvp.reader.injector.modules;
 import com.amibtion.mvp.reader.adapter.PhotoListAdapter;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.module.photo.news.PhotoNewsFragment;
+import com.amibtion.mvp.reader.module.photo.news.PhotoNewsPresenter;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 
 import dagger.Module;

@@ -18,11 +18,11 @@ public class ChannelEvent {
 
     public static final int ADD_EVENT = 301;
     public static final int DEL_EVENT = 401;
-    public static final int SWAP_EVENt = 501;
+    public static final int SWAP_EVENT = 501;
 
     @Retention(RetentionPolicy.SOURCE)
     @Target(ElementType.PARAMETER)
-    @IntDef({ADD_EVENT,DEL_EVENT,SWAP_EVENt})
+    @IntDef({ADD_EVENT,DEL_EVENT,SWAP_EVENT})
     public @interface ChannelEventType{}
 
     public int eventType;

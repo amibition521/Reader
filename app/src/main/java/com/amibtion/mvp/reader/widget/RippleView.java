@@ -46,7 +46,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 
-import com.dl7.mvp.R;
+import com.amibtion.mvp.reader.R;
 
 
 /**

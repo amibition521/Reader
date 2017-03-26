@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.local.table.BeautyPhotoInfo;
+import com.amibtion.mvp.reader.module.photo.bigphoto.BigPhotoActivity;
 import com.amibtion.mvp.reader.utils.DefIconFactory;
 import com.amibtion.mvp.reader.utils.ImageLoader;
 import com.amibtion.mvp.reader.utils.StringUtils;

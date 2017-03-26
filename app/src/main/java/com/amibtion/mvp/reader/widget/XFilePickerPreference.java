@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 
-import com.dl7.mvp.utils.SDCardUtils;
-import com.dl7.mvp.utils.StringUtils;
+import com.amibtion.mvp.reader.utils.SDCardUtils;
+import com.amibtion.mvp.reader.utils.StringUtils;
 import com.github.angads25.filepicker.view.FilePickerPreference;
 
 import java.io.File;

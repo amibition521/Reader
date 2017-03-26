@@ -1,4 +1,4 @@
-package com.dl7.mvp.module.news.photoset;
+package com.amibtion.mvp.reader.module.news.photoset;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,16 +7,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
+import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.adapter.PhotoSetAdapter;
+import com.amibtion.mvp.reader.api.bean.PhotoSetInfo;
+import com.amibtion.mvp.reader.injector.components.DaggerPhotoSetComponent;
+import com.amibtion.mvp.reader.injector.modules.PhotoSetModule;
+import com.amibtion.mvp.reader.module.base.BaseActivity;
+import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.widget.PhotoViewPager;
 import com.dl7.drag.DragSlopLayout;
-import com.dl7.mvp.R;
-import com.dl7.mvp.adapter.PhotoSetAdapter;
-import com.dl7.mvp.api.bean.PhotoSetInfo;
-import com.dl7.mvp.api.bean.PhotoSetInfo.PhotosEntity;
-import com.dl7.mvp.injector.components.DaggerPhotoSetComponent;
-import com.dl7.mvp.injector.modules.PhotoSetModule;
-import com.dl7.mvp.module.base.BaseActivity;
-import com.dl7.mvp.module.base.IBasePresenter;
-import com.dl7.mvp.widget.PhotoViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +47,7 @@ public class PhotoSetActivity extends BaseActivity<IBasePresenter> implements IP
 
     private String mPhotoSetId;
     private PhotoSetAdapter mAdapter;
-    private List<PhotosEntity> mPhotosEntities;
+    private List<PhotoSetInfo.PhotosEntity> mPhotosEntities;
     private boolean mIsHideToolbar = false;
 
     public static void launch(Context context, String photoId) {
@@ -74,7 +73,8 @@ public class PhotoSetActivity extends BaseActivity<IBasePresenter> implements IP
 
     @Override
     protected void initViews() {
-        initToolBar(mToolbar, true, "");
+//        initToolBar(mToolbar, true, "");
+        initToolbar(mToolbar,true,"");
     }
 
     @Override
@@ -86,10 +86,10 @@ public class PhotoSetActivity extends BaseActivity<IBasePresenter> implements IP
     public void loadData(PhotoSetInfo photoSetBean) {
         List<String> imgUrls = new ArrayList<>();
         mPhotosEntities = photoSetBean.getPhotos();
-        for (PhotosEntity entity : mPhotosEntities) {
+        for (PhotoSetInfo.PhotosEntity entity : mPhotosEntities) {
             imgUrls.add(entity.getImgurl());
         }
-        mAdapter = new PhotoSetAdapter(this, imgUrls);
+        mAdapter = new PhotoSetAdapter(imgUrls,this);
         mVpPhoto.setAdapter(mAdapter);
         mVpPhoto.setOffscreenPageLimit(imgUrls.size());
 

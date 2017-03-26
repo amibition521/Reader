@@ -12,10 +12,13 @@ import android.widget.TextView;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.adapter.ViewPagerAdapter;
+import com.amibtion.mvp.reader.injector.components.DaggerDownloadComponent;
 import com.amibtion.mvp.reader.injector.modules.DownloadModule;
 import com.amibtion.mvp.reader.module.base.BaseActivity;
-import com.amibtion.mvp.reader.module.base.BaseVideoDlFragment;
+import com.amibtion.mvp.reader.module.base.BaseVideoDLFragment;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
+import com.amibtion.mvp.reader.module.manage.download.cache.VideoCacheFragment;
+import com.amibtion.mvp.reader.module.manage.download.complete.VideoCompleteFragment;
 import com.amibtion.mvp.reader.rxbus.event.VideoEvent;
 import com.amibtion.mvp.reader.widget.FlexibleViewPager;
 import com.flyco.tablayout.SlidingTabLayout;
@@ -54,8 +57,8 @@ public class DownloadActivity extends BaseActivity<IRxBusPresenter> {
 
     @Inject
     ViewPagerAdapter mPagerAdapter;
-    private BaseVideoDlFragment mCompleteFragment;
-    private BaseVideoDlFragment mCacheFragment;
+    private BaseVideoDLFragment mCompleteFragment;
+    private BaseVideoDLFragment mCacheFragment;
     private int mIndex;
 
     public static void launch(Context context, int index){
@@ -72,7 +75,7 @@ public class DownloadActivity extends BaseActivity<IRxBusPresenter> {
 
     @Override
     protected void initInjector() {
-        DaggerDowmloadComponent.builder()
+        DaggerDownloadComponent.builder()
                 .applicationComponent(getAppComponent())
                 .downloadModule(new DownloadModule(this))
                 .build()
@@ -82,7 +85,8 @@ public class DownloadActivity extends BaseActivity<IRxBusPresenter> {
     @Override
     protected void initViews() {
         mIndex = getIntent().getIntExtra(INDEX_KEY,0);
-        initToolBar(mToolBar,true, "下载管理");
+//        initToolBar(mToolBar,true, "下载管理");
+        initToolbar(mToolBar,true, "下载管理");
         mViewPager.setAdapter(mPagerAdapter);
         mPresenter.registerRxBus(VideoEvent.class, new Action1<VideoEvent>() {
             @Override

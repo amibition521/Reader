@@ -20,7 +20,7 @@ public class DownloadConfig {
 
     private DownloadConfig() {
             mDownloadDir = Environment.getExternalStorageDirectory().getAbsolutePath() +
-                    "/MvpApp/video/";
+                    "/Reader/video/";
             File dir = new File(mDownloadDir);
             if (!dir.exists()) {
                 dir.mkdirs();

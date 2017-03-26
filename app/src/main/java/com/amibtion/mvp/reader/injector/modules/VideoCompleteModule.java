@@ -5,6 +5,8 @@ import com.amibtion.mvp.reader.adapter.VideoCompleteAdapter;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
+import com.amibtion.mvp.reader.module.manage.download.complete.VideoCompleteFragment;
+import com.amibtion.mvp.reader.module.manage.download.complete.VideoCompletePresenter;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 
 import dagger.Module;
@@ -31,6 +33,6 @@ public class VideoCompleteModule {
     @PerFragment
     @Provides
     public BaseVideoDLAdapter provideAdapter(RxBus rxBus){
-        return new VideoCompleteAdapter(mView.getContext());
+        return new VideoCompleteAdapter(mView.getContext(),rxBus);
     }
 }

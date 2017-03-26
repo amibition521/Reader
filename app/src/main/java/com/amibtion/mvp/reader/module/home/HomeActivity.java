@@ -8,16 +8,19 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.module.base.BaseActivity;
+import com.amibtion.mvp.reader.module.manage.setting.SettingsActivity;
+import com.amibtion.mvp.reader.module.news.main.NewsMainFragment;
+import com.amibtion.mvp.reader.module.photo.main.PhotoMainFragment;
+import com.amibtion.mvp.reader.module.video.main.VideoMainFragment;
 import com.amibtion.mvp.reader.utils.SnackbarUtils;
 import com.dl7.downloaderlib.FileDownloader;
 import com.tbruyelle.rxpermissions.RxPermissions;
@@ -25,7 +28,6 @@ import com.tbruyelle.rxpermissions.RxPermissions;
 import java.io.File;
 
 import butterknife.BindView;
-import okio.Buffer;
 import rx.functions.Action1;
 
 /**
@@ -85,7 +87,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         mSparseTags.put(R.id.nav_news,"News");
         mSparseTags.put(R.id.nav_photos,"Photos");
         mSparseTags.put(R.id.nav_videos,"Videos");
-        _getPemission();
+//        _getPemission();
     }
 
     @Override
@@ -101,7 +103,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
 //    }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull final MenuItem item) {
         mDrawerLayout.closeDrawer(GravityCompat.START);
         if (item.isChecked()){
             return true;
@@ -118,7 +120,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (stackEntryCount == 1) {
             _exit();
         } else {
-            final String tagName = getSupportFragmentManager().getBackStackEntryAt();
+            final String tagName = getSupportFragmentManager().getBackStackEntryAt(stackEntryCount - 2).getName();
             mNavView.setCheckedItem(mSparseTags.keyAt(mSparseTags.indexOfValue(tagName)));
             super.onBackPressed();
 
@@ -129,7 +131,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home){
             mDrawerLayout.openDrawer(GravityCompat.START);
-            return false;
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -144,27 +146,13 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
             drawerLayout.setClipToPadding(false);
         }
 
-        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-
-            }
-
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerClosed(View drawerView) {
                 mHander.sendEmptyMessage(mItemId);
             }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-
-            }
         });
+        navView.setNavigationItemSelectedListener(this);
     }
 
     private void _getPemission() {
@@ -183,6 +171,18 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
                             }
                         }
                     });
+        }
+    }
+
+    /**
+     * 退出
+     */
+    private void _exit() {
+        if (System.currentTimeMillis() - mExitTime > 2000) {
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            mExitTime = System.currentTimeMillis();
+        } else {
+            finish();
         }
     }
 }

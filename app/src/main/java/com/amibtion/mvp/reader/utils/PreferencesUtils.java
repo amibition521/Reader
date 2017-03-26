@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.dl7.mvp.module.manage.setting.SettingsFragment;
+import com.amibtion.mvp.reader.module.manage.setting.SettingsFragment;
+
 
 /**
  * PreferencesUtils, easy to get or put data

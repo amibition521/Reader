@@ -2,6 +2,7 @@ package com.amibtion.mvp.reader.injector.components;
 
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.injector.modules.VideoCacheModule;
+import com.amibtion.mvp.reader.module.manage.download.cache.VideoCacheFragment;
 
 import dagger.Component;
 

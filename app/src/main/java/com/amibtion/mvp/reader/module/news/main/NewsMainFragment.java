@@ -10,11 +10,14 @@ import android.view.MenuItem;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.adapter.ViewPagerAdapter;
+import com.amibtion.mvp.reader.injector.components.DaggerNewsMainComponent;
 import com.amibtion.mvp.reader.injector.components.NewsListComponent;
 import com.amibtion.mvp.reader.injector.modules.NewsMainModule;
 import com.amibtion.mvp.reader.local.table.NewsTypeInfo;
 import com.amibtion.mvp.reader.module.base.BaseFragment;
 import com.amibtion.mvp.reader.module.base.IRxBusPresenter;
+import com.amibtion.mvp.reader.module.news.channel.ChannelActivity;
+import com.amibtion.mvp.reader.module.news.newslist.NewsListFragment;
 import com.amibtion.mvp.reader.rxbus.event.ChannelEvent;
 
 import java.util.ArrayList;
@@ -93,8 +96,7 @@ public class NewsMainFragment extends BaseFragment<IRxBusPresenter> implements I
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_channel,menu);
+        inflater.inflate(R.menu.menu_channel, menu);
     }
 
     @Override
@@ -115,7 +117,7 @@ public class NewsMainFragment extends BaseFragment<IRxBusPresenter> implements I
                 mViewPager.setCurrentItem(0);
                 mPagerAdapter.delItem(channelEvent.newsInfo.getName());
                 break;
-            case ChannelEvent.SWAP_EVENt:
+            case ChannelEvent.SWAP_EVENT:
                 mPagerAdapter.swapItems(channelEvent.fromPos,channelEvent.toPos);
                 break;
         }

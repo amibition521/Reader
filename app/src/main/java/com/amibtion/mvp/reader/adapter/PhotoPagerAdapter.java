@@ -26,7 +26,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
  * 图片浏览适配器
  */
 
-public class PhotoPageAdapter extends PagerAdapter  {
+public class PhotoPagerAdapter extends PagerAdapter  {
 
     // 限制 Adapter 在倒数第3个位置时启动加载更多回调
     private final static int LOAD_MORE_LIMIT = 3;
@@ -36,12 +36,12 @@ public class PhotoPageAdapter extends PagerAdapter  {
     private OnLoadMoreListener mLoadMoreListener;
     private boolean mIsLoadMore = false;
 
-    public PhotoPageAdapter(List<BeautyPhotoInfo> mImgList, Context mContext) {
+    public PhotoPagerAdapter(List<BeautyPhotoInfo> mImgList, Context mContext) {
         this.mImgList = mImgList;
         this.mContext = mContext;
     }
 
-    public PhotoPageAdapter(Context mContext) {
+    public PhotoPagerAdapter(Context mContext) {
         this.mContext = mContext;
         this.mImgList = Collections.EMPTY_LIST;
     }
@@ -130,7 +130,7 @@ public class PhotoPageAdapter extends PagerAdapter  {
      * @param position
      * @return
      */
-    public boolean isLOved(int position){
+    public boolean isLoved(int position){
         return mImgList.get(position).isLove();
     }
 
@@ -174,7 +174,7 @@ public class PhotoPageAdapter extends PagerAdapter  {
         mTapListener = listener;
     }
 
-    public void setmLoadMoreListener (OnLoadMoreListener loadMoreListener){
+    public void setLoadMoreListener (OnLoadMoreListener loadMoreListener){
         mLoadMoreListener = loadMoreListener;
     }
 

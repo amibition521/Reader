@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.util.SparseBooleanArray;
 
+import com.amibtion.mvp.reader.local.table.BeautyPhotoInfo;
+import com.amibtion.mvp.reader.local.table.BeautyPhotoInfoDao;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
-import com.dl7.mvp.local.table.BeautyPhotoInfo;
-import com.dl7.mvp.local.table.BeautyPhotoInfoDao;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;

@@ -229,6 +229,18 @@ public class RetrofitService {
     }
 
     /**
+     * 获取图片列表
+     * @return
+     */
+    public static Observable<List<PhotoInfo>> getPhotoList() {
+        return sNewsService.getPhotoList()
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
      * 获取更多图片列表
      * @param setId
      * @return

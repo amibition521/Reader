@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.dl7.mvp.R;
-import com.dl7.mvp.utils.ToastUtils;
+import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.utils.ToastUtils;
 import com.flyco.animation.FlipEnter.FlipVerticalSwingEnter;
 import com.flyco.dialog.widget.base.BottomBaseDialog;
 

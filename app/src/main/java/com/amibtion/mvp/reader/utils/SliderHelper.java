@@ -3,15 +3,15 @@ package com.amibtion.mvp.reader.utils;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.amibtion.mvp.reader.api.NewsUtils;
+import com.amibtion.mvp.reader.api.bean.NewsInfo;
+import com.amibtion.mvp.reader.module.news.article.NewsArticleActivity;
+import com.amibtion.mvp.reader.module.news.photoset.PhotoSetActivity;
+import com.amibtion.mvp.reader.module.news.special.SpecialActivity;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.dl7.mvp.api.NewsUtils;
-import com.dl7.mvp.api.bean.NewsInfo;
-import com.dl7.mvp.module.news.article.NewsArticleActivity;
-import com.dl7.mvp.module.news.photoset.PhotoSetActivity;
-import com.dl7.mvp.module.news.special.SpecialActivity;
 
 /**
  * Created by long on 2016/8/24.

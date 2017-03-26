@@ -16,7 +16,7 @@ import com.amibtion.mvp.reader.utils.SwipeRefreshHelper;
 import com.amibtion.mvp.reader.widget.EmptyLayout;
 import com.orhanobut.logger.Logger;
 import com.trello.rxlifecycle.LifecycleTransformer;
-import com.trello.rxlifecycle.components.RxFragment;
+import com.trello.rxlifecycle.components.support.RxFragment;
 
 import javax.inject.Inject;
 
@@ -53,10 +53,10 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        if (mRootView == null){
-            mRootView = inflater.inflate(attachLayoutRes(),null);
-            ButterKnife.bind(this,mRootView);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (mRootView == null) {
+            mRootView = inflater.inflate(attachLayoutRes(), null);
+            ButterKnife.bind(this, mRootView);
             initInjector();
             initViews();
             initSwipeRefresh();
@@ -105,8 +105,8 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
     }
 
     @Override
-    public void showNetError(EmptyLayout.OnRetryListener onRetryListener) {
-        if (mEmptyLayout != null){
+    public void showNetError(final EmptyLayout.OnRetryListener onRetryListener) {
+        if (mEmptyLayout != null) {
             mEmptyLayout.setEmptyStatus(EmptyLayout.STATUS_NO_NET);
             mEmptyLayout.setRetryListener(onRetryListener);
             SwipeRefreshHelper.enableRefresh(mSwipeRefresh,false);
@@ -132,7 +132,7 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
      * @return
      */
     protected ApplicationComponent getAppComponent(){
-        return AndroidApplication.getsAppComponent();
+        return AndroidApplication.getAppComponent();
     }
 
     protected void initToolBar(Toolbar toolbar,boolean homeAsUpEnabled,String title){

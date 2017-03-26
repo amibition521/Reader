@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.adapter.BaseVideoDLAdapter;
+import com.amibtion.mvp.reader.module.manage.download.DownloadActivity;
 import com.dl7.recycler.adapter.BaseViewHolder;
 import com.dl7.recycler.listener.OnRecyclerViewItemLongClickListener;
 
@@ -17,7 +18,7 @@ import butterknife.BindView;
  * video 下载的基类Fragment
  */
 
-public abstract class BaseVideoDlFragment<T extends IBasePresenter> extends BaseFragment<T> {
+public abstract class BaseVideoDLFragment<T extends IBasePresenter> extends BaseFragment<T> {
 
     @BindView(R.id.rv_video_list)
     protected RecyclerView mRvVideoList;

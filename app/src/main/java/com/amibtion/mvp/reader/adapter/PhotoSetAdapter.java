@@ -96,6 +96,10 @@ public class PhotoSetAdapter extends PagerAdapter {
         container.removeView((View) object);
     }
 
+    public void setTapListener(OnTapListener listener){
+        mTapListenr = listener;
+    }
+
     public interface OnTapListener{
         void onPhotoClick();
     }

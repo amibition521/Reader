@@ -1,8 +1,8 @@
 package com.amibtion.mvp.reader.injector.components;
 
-import com.amibition.mvp.reader.Application;
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.injector.modules.ChannelModule;
+import com.amibtion.mvp.reader.module.news.channel.ChannelActivity;
 
 import dagger.Component;
 

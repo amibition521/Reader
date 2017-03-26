@@ -31,13 +31,13 @@ public class DownloadPresenter implements IRxBusPresenter {
 
     @Override
     public <T> void registerRxBus(Class<T> eventType, Action1<T> action) {
-        Subscription subscription = mRxBus.doSubscibe(eventType, action, new Action1<Throwable>() {
+        Subscription subscription = mRxBus.doSubscribe(eventType, action, new Action1<Throwable>() {
             @Override
             public void call(Throwable throwable) {
                 Logger.e(throwable.toString());
             }
         });
-        mRxBus.addSubsciption(this,subscription);
+        mRxBus.addSubscription(this,subscription);
     }
 
     @Override

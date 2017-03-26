@@ -3,7 +3,6 @@ package com.amibtion.mvp.reader.module.base;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.amibtion.mvp.reader.widget.SwipeBackLayout;
 
@@ -17,14 +16,14 @@ public abstract class BaseSwipeBackActivity<T extends IBasePresenter> extends Ba
     private SwipeBackLayout mSwipeBackLayout;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mSwipeBackLayout = new SwipeBackLayout(this);
     }
 
     @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+    protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mSwipeBackLayout.attachToActivity(this,SwipeBackLayout.EDGE_LEFT);
         // 触摸边缘变为屏幕宽度的1/2

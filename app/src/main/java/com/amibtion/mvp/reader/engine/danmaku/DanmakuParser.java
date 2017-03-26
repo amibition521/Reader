@@ -1,11 +1,12 @@
-package com.dl7.mvp.engine.danmaku;
+package com.amibtion.mvp.reader.engine.danmaku;
 
 import android.graphics.Color;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.dl7.mvp.local.table.DanmakuInfo;
+import com.amibtion.mvp.reader.local.table.DanmakuInfo;
 import com.orhanobut.logger.Logger;
+
 
 import java.util.List;
 

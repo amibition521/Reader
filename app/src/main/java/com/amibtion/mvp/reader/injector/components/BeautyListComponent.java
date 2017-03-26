@@ -2,6 +2,7 @@ package com.amibtion.mvp.reader.injector.components;
 
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.injector.modules.BeautyListModule;
+import com.amibtion.mvp.reader.module.photo.beauty.BeautyListFragment;
 
 import dagger.Component;
 

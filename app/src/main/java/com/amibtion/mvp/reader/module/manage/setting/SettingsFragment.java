@@ -13,7 +13,7 @@ import com.orhanobut.logger.Logger;
  * Created by nieyuxin on 2017/3/21.
  */
 
-public class SettingFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static final String NO_IMAGE_KEY = "setting_no_image";
     public static final String SAVE_PATH_KEY = "setting_save_path";

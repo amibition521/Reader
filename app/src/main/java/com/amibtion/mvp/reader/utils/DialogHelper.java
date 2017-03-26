@@ -5,10 +5,10 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 
+import com.amibtion.mvp.reader.engine.DownloaderWrapper;
+import com.amibtion.mvp.reader.local.table.VideoInfo;
+import com.amibtion.mvp.reader.module.manage.download.DownloadActivity;
 import com.dl7.downloaderlib.model.DownloadStatus;
-import com.dl7.mvp.engine.DownloaderWrapper;
-import com.dl7.mvp.local.table.VideoInfo;
-import com.dl7.mvp.module.manage.download.DownloadActivity;
 import com.flyco.dialog.widget.popup.BubblePopup;
 
 /**

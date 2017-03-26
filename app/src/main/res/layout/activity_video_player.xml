@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dl7.mvp.module.video.player.VideoPlayerActivity">
+    tools:context="com.amibtion.mvp.reader.module.video.player.VideoPlayerActivity">
 
     <include layout="@layout/layout_toolbar"/>
 
@@ -42,7 +42,7 @@
             android:textColorHint="#cccccc"
             android:textSize="14sp"/>
 
-        <com.dl7.mvp.widget.SimpleButton
+        <com.amibtion.mvp.reader.widget.SimpleButton
             android:id="@+id/sb_send"
             android:layout_width="45dp"
             android:layout_height="30dp"

@@ -58,7 +58,7 @@ public class RxBus {
      * @param <T>
      * @return
      */
-    public <T> Subscription doSubscibe(Class<T> type, Action1<T> next,Action1<Throwable> error){
+    public <T> Subscription doSubscribe(Class<T> type, Action1<T> next,Action1<Throwable> error){
 
         return toObservable(type)
                 // 加上背压处理，不然有些地方会有异常，关于背压参考这里：https://gold.xitu.io/post/582d413c8ac24700619cceed
@@ -73,7 +73,7 @@ public class RxBus {
      * @param o
      * @param subscription
      */
-    public void addSubsciption(Object o,Subscription subscription) {
+    public void addSubscription(Object o,Subscription subscription) {
         if (mSubscriptionMap == null){
             mSubscriptionMap = new HashMap<>();
         }

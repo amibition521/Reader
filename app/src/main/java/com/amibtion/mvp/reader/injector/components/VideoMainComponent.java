@@ -12,6 +12,6 @@ import dagger.Component;
  */
 @PerFragment
 @Component(dependencies = ApplicationComponent.class,modules = VideoMainModule.class)
-public interface VideoMainComplete {
+public interface VideoMainComponent {
     void inject(VideoMainFragment fragment);
 }

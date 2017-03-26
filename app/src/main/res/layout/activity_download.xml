@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dl7.mvp.module.manage.download.DownloadActivity">
+    tools:context="com.amibtion.mvp.reader.module.manage.download.DownloadActivity">
 
     <!-- 遮挡状态栏透明的部分 -->
     <TextView
@@ -55,7 +55,7 @@
                 app:tl_tab_space_equal="true"/>
         </android.support.design.widget.AppBarLayout>
 
-        <com.dl7.mvp.widget.FlexibleViewPager
+        <com.amibtion.mvp.reader.widget.FlexibleViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

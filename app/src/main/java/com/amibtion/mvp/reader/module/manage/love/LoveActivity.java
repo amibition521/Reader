@@ -11,6 +11,7 @@ import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.adapter.ViewPagerAdapter;
 import com.amibtion.mvp.reader.module.base.BaseActivity;
 import com.amibtion.mvp.reader.module.manage.love.photo.LovePhotoFragment;
+import com.amibtion.mvp.reader.module.manage.love.video.LoveVideoFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;

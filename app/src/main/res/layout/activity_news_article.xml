@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".module.news.article.NewsArticleActivity">
 
-    <com.dl7.mvp.widget.PullScrollView
+    <com.amibtion.mvp.reader.widget.PullScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,7 +42,7 @@
 
             <include layout="@layout/layout_pull_scrollview_foot"/>
         </LinearLayout>
-    </com.dl7.mvp.widget.PullScrollView>
+    </com.amibtion.mvp.reader.widget.PullScrollView>
 
     <include layout="@layout/layout_common_empty"/>
 

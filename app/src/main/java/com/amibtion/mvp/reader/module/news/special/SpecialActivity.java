@@ -1,4 +1,6 @@
-package com.dl7.mvp.module.news.special;
+package com.amibtion.mvp.reader.module.news.special;
+
+
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,20 +16,19 @@ import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dl7.mvp.R;
-import com.dl7.mvp.adapter.item.SpecialItem;
-import com.dl7.mvp.api.bean.SpecialInfo;
-import com.dl7.mvp.injector.components.DaggerSpecialComponent;
-import com.dl7.mvp.injector.modules.SpecialModule;
-import com.dl7.mvp.module.base.BaseSwipeBackActivity;
-import com.dl7.mvp.module.base.IBasePresenter;
-import com.dl7.mvp.utils.DefIconFactory;
-import com.dl7.mvp.utils.ImageLoader;
+import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.adapter.item.SpecialItem;
+import com.amibtion.mvp.reader.api.bean.SpecialInfo;
+import com.amibtion.mvp.reader.injector.components.DaggerSpecialComponent;
+import com.amibtion.mvp.reader.injector.modules.SpecialModule;
+import com.amibtion.mvp.reader.module.base.BaseSwipeBackActivity;
+import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.utils.DefIconFactory;
+import com.amibtion.mvp.reader.utils.ImageLoader;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 import com.dl7.recycler.helper.RecyclerViewHelper;
 import com.dl7.tag.TagLayout;
 import com.dl7.tag.TagView;
-import com.dl7.tag.TagView.OnTagClickListener;
 
 import java.util.List;
 
@@ -89,7 +90,8 @@ public class SpecialActivity extends BaseSwipeBackActivity<IBasePresenter> imple
 
     @Override
     protected void initViews() {
-        initToolBar(mToolbar, true, "");
+//        initToolBar(mToolbar, true, "");
+        initToolbar(mToolbar,true,"");
         ScaleInAnimationAdapter animAdapter = new ScaleInAnimationAdapter(mSpecialAdapter);
         RecyclerViewHelper.initRecyclerViewV(this, mRvNewsList, true, new AlphaInAnimationAdapter(animAdapter));
         mLayoutManager = (LinearLayoutManager) mRvNewsList.getLayoutManager();
@@ -166,7 +168,7 @@ public class SpecialActivity extends BaseSwipeBackActivity<IBasePresenter> imple
                         mTagLayout.addTag(s);
                     }
                 });
-        mTagLayout.setTagClickListener(new OnTagClickListener() {
+        mTagLayout.setTagClickListener(new TagView.OnTagClickListener() {
             @Override
             public void onTagClick(int position, String text, @TagView.TagMode int tagMode) {
                 // 跳转到对应position,比scrollToPosition（）精确

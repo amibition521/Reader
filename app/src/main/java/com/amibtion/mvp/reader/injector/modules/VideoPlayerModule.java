@@ -4,6 +4,10 @@ import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.local.table.DaoSession;
 import com.amibtion.mvp.reader.local.table.VideoInfo;
+import com.amibtion.mvp.reader.module.video.main.VideoMainPresenter;
+import com.amibtion.mvp.reader.module.video.player.IVideoPresenter;
+import com.amibtion.mvp.reader.module.video.player.VideoPlayerActivity;
+import com.amibtion.mvp.reader.module.video.player.VideoPlayerPresenter;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 
 import dagger.Module;
@@ -27,6 +31,6 @@ public class VideoPlayerModule {
     @PerActivity
     @Provides
     public IVideoPresenter providePresenter(DaoSession daoSession, RxBus rxBus){
-        return new VideoPlayerPresenter(mView,daoSession.getVideoInfoDao(),rxBus);
+        return new VideoPlayerPresenter(mView,daoSession.getVideoInfoDao(),rxBus,mVideoInfo,daoSession.getDanmakuInfoDao());
     }
 }

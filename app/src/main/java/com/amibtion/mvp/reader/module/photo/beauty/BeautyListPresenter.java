@@ -15,12 +15,12 @@ import rx.functions.Action0;
  * Created by nieyuxin on 2017/3/25.
  */
 
-public class BeautyListFragment implements IBasePresenter {
+public class BeautyListPresenter implements IBasePresenter {
 
     private final ILoadDataView mView;
     private int mPage = 0;
 
-    public BeautyListFragment(ILoadDataView mView) {
+    public BeautyListPresenter(ILoadDataView mView) {
         this.mView = mView;
     }
 

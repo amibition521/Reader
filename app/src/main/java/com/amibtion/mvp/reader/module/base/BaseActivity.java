@@ -1,6 +1,7 @@
 package com.amibtion.mvp.reader.module.base;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -8,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.amibtion.mvp.reader.AndroidApplication;
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.injector.components.ApplicationComponent;
 import com.amibtion.mvp.reader.injector.modules.ActivityModule;
@@ -46,6 +48,7 @@ public abstract class BaseActivity <T extends IBasePresenter> extends RxAppCompa
      * 绑定布局
      * @return
      */
+    @LayoutRes
     protected abstract int attachLayoutRes();
 
     /**
@@ -65,7 +68,7 @@ public abstract class BaseActivity <T extends IBasePresenter> extends RxAppCompa
         super.onCreate(savedInstanceState);
         setContentView(attachLayoutRes());
         ButterKnife.bind(this);
-        initInjector();;
+        initInjector();
         initViews();
         initSwipeRefresh();
         updateViews(false);
@@ -86,8 +89,8 @@ public abstract class BaseActivity <T extends IBasePresenter> extends RxAppCompa
     }
 
     @Override
-    public void showNetError(EmptyLayout.OnRetryListener onRetryListener) {
-        if (mEmptyLayout != null){
+    public void showNetError(final EmptyLayout.OnRetryListener onRetryListener) {
+        if (mEmptyLayout != null) {
             mEmptyLayout.setEmptyStatus(EmptyLayout.STATUS_NO_NET);
             mEmptyLayout.setRetryListener(onRetryListener);
         }
@@ -100,18 +103,16 @@ public abstract class BaseActivity <T extends IBasePresenter> extends RxAppCompa
 
     @Override
     public void finishRefresh() {
-        if (mSwipeRefresh != null){
-            SwipeRefreshHelper.init(mSwipeRefresh, new SwipeRefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
-                    updateViews(true);
-                }
-            });
+        if (mSwipeRefresh != null) {
+            mSwipeRefresh.setRefreshing(false);
         }
     }
 
-    private void initSwipeRefresh(){
-        if (mSwipeRefresh != null){
+    /**
+     * 初始化下拉刷新
+     */
+    private void initSwipeRefresh() {
+        if (mSwipeRefresh != null) {
             SwipeRefreshHelper.init(mSwipeRefresh, new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {

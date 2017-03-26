@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.SparseBooleanArray;
 
 import com.amibtion.mvp.reader.R;
+import com.amibtion.mvp.reader.engine.DownloaderWrapper;
 import com.amibtion.mvp.reader.local.table.VideoInfo;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 import com.amibtion.mvp.reader.rxbus.event.VideoEvent;
@@ -90,7 +91,7 @@ public abstract class BaseVideoDLAdapter extends BaseQuickAdapter<VideoInfo>{
     public void deleteItemChecked(){
         for(int i = mSparseItemChecked.size() -1;i >= 0;i--){
             if(mSparseItemChecked.valueAt(i)){
-                DownloaderWrapper.deleter(getItem(mSparseItemChecked.keyAt(i)));
+                DownloaderWrapper.delete(getItem(mSparseItemChecked.keyAt(i)));
                 removeItem(mSparseItemChecked.keyAt(i));
                 mSparseItemChecked.delete(mSparseItemChecked.keyAt(i));
             }

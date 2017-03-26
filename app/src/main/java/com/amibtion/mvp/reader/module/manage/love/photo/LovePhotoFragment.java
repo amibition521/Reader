@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.amibtion.mvp.reader.R;
 import com.amibtion.mvp.reader.adapter.SlideInBottomAdapter;
+import com.amibtion.mvp.reader.injector.components.DaggerLovePhotoComponent;
 import com.amibtion.mvp.reader.injector.modules.LovePhotoModule;
 import com.amibtion.mvp.reader.local.table.BeautyPhotoInfo;
 import com.amibtion.mvp.reader.module.base.BaseFragment;
@@ -74,6 +75,7 @@ public class LovePhotoFragment extends BaseFragment<ILocalPresenter> implements 
                         mAdapter.removeItem(position);
                     }
                 });
+                return true;
             }
         });
 

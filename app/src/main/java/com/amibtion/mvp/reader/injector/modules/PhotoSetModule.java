@@ -2,6 +2,8 @@ package com.amibtion.mvp.reader.injector.modules;
 
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.module.base.IBasePresenter;
+import com.amibtion.mvp.reader.module.news.photoset.PhotoSetActivity;
+import com.amibtion.mvp.reader.module.news.photoset.PhotoSetPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -23,6 +25,6 @@ public class PhotoSetModule {
     @PerActivity
     @Provides
     public IBasePresenter providePhotoSetPresenter() {
-        return new PhotoSetModule(mView,mPhotoSetId);
+        return new PhotoSetPresenter(mView,mPhotoSetId);
     }
 }

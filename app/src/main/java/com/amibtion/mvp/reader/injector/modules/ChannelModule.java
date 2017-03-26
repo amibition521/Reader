@@ -3,6 +3,9 @@ package com.amibtion.mvp.reader.injector.modules;
 import com.amibtion.mvp.reader.adapter.ManageAdapter;
 import com.amibtion.mvp.reader.injector.PerActivity;
 import com.amibtion.mvp.reader.local.table.DaoSession;
+import com.amibtion.mvp.reader.module.news.channel.ChannelActivity;
+import com.amibtion.mvp.reader.module.news.channel.ChannelPresenter;
+import com.amibtion.mvp.reader.module.news.channel.IChannelPresenter;
 import com.amibtion.mvp.reader.rxbus.RxBus;
 import com.dl7.recycler.adapter.BaseQuickAdapter;
 
@@ -26,7 +29,7 @@ public class ChannelModule {
     @PerActivity
     @Provides
     public IChannelPresenter provideManagePresenter(DaoSession daoSession, RxBus rxBus){
-        return new CHannelPresenter(mView,daoSession.getNewsTypeInfoDao(),rxBus);
+        return new ChannelPresenter(mView,daoSession.getNewsTypeInfoDao(),rxBus);
     }
 
 }
