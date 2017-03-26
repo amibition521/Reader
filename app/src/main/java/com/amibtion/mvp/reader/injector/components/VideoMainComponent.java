@@ -1,8 +1,9 @@
 package com.amibtion.mvp.reader.injector.components;
 
-import com.amibition.mvp.reader.Application;
+
 import com.amibtion.mvp.reader.injector.PerFragment;
 import com.amibtion.mvp.reader.injector.modules.VideoMainModule;
+import com.amibtion.mvp.reader.module.video.main.VideoMainFragment;
 
 import dagger.Component;
 
