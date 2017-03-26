@@ -133,6 +133,8 @@ public abstract class BaseFragment<T extends IBasePresenter> extends RxFragment 
      */
     protected ApplicationComponent getAppComponent(){
         return AndroidApplication.getAppComponent();
+
+//        return AndroidApplication.getAppComponent();
     }
 
     protected void initToolBar(Toolbar toolbar,boolean homeAsUpEnabled,String title){

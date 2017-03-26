@@ -55,11 +55,7 @@ public class ChannelActivity extends BaseActivity <IChannelPresenter> implements
 
     }
 
-    @Override
-    public void loadData(List<NewsTypeInfo> checkList, List<NewsTypeInfo> uncheckList) {
-        mCheckedAdapter.updateItems(checkList);
-        mUncheckedAdapter.updateItems(checkList);
-    }
+
 
     @Override
     protected int attachLayoutRes() {
@@ -79,13 +75,14 @@ public class ChannelActivity extends BaseActivity <IChannelPresenter> implements
     protected void initViews() {
         initToolbar(mToolbar,true,"栏目管理");
         RecyclerViewHelper.initRecyclerViewG(this,mRvCheckedList,mCheckedAdapter,4);
-        RecyclerViewHelper.initRecyclerViewG(this,mRvCheckedList,mUncheckedAdapter,4);
+        RecyclerViewHelper.initRecyclerViewG(this, mRvUncheckedList, mUncheckedAdapter, 4);
         RecyclerViewHelper.startDragAndSwipe(mRvCheckedList,mCheckedAdapter,3);
 
         mRvCheckedList.setItemAnimator(new ScaleInAnimator());
-        mRvCheckedList.setItemAnimator(new FlipInBottomXAnimator());
-
-        mCheckedAdapter.setDragDrawable(ContextCompat.getDrawable(this,R.drawable.shape_channel_drag));
+        mRvUncheckedList.setItemAnimator(new FlipInBottomXAnimator());
+        // 设置拖拽背景
+        mCheckedAdapter.setDragDrawable(ContextCompat.getDrawable(this, R.drawable.shape_channel_drag));
+        // 设置移除监听器
         mCheckedAdapter.setRemoveDataListener(new OnRemoveDataListener() {
             @Override
             public void onRemove(int position) {
@@ -116,7 +113,13 @@ public class ChannelActivity extends BaseActivity <IChannelPresenter> implements
         mPresenter.getData(isRefresh);
     }
 
+    
     @Override
+    public void loadData(List<NewsTypeInfo> checkList, List<NewsTypeInfo> uncheckList) {
+        mCheckedAdapter.updateItems(checkList);
+        mUncheckedAdapter.updateItems(uncheckList);
+    }
+	@Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.hold, R.anim.fade_exit);

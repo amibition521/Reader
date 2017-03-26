@@ -49,6 +49,6 @@ public class PhotoMainPresenter implements IRxBusPresenter {
 
     @Override
     public void unregisterRxBus() {
-
+        mRxBus.unSubscribe(this);
     }
 }

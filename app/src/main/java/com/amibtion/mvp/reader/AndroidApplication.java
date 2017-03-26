@@ -35,13 +35,11 @@ import org.greenrobot.greendao.database.Database;
 
 import java.io.File;
 
-import retrofit2.Retrofit;
-
 /**
  * Created by nieyuxin on 2017/3/12.
  */
 @SuppressWarnings("unused")
-@DefaultLifeCycle(application = "com.amibition.mvp.reader.Application",
+@DefaultLifeCycle(application = "com.amibtion.mvp.reader.Application",
     flags = ShareConstants.TINKER_ENABLE_ALL,
     loadVerifyFlag = false)
 public class AndroidApplication extends DefaultApplicationLike {
@@ -94,6 +92,13 @@ public class AndroidApplication extends DefaultApplicationLike {
         _initInjector();
         _initConfig();
     }
+    /**
+     * 使用Tinker生成Application，这里改成静态调用
+     * @return
+     */
+    public static ApplicationComponent getAppComponent() {
+        return sAppComponent;
+    }
 
 
     public static Context getContext(){
@@ -124,17 +129,11 @@ public class AndroidApplication extends DefaultApplicationLike {
         ToastUtils.init(getApplication());
         DownloaderWrapper.init(mRxBus,mDaoSession.getVideoInfoDao());
         FileDownloader.init(getApplication());
-        DownloadConfig config = new DownloadConfig.Builder().setDownloadDir(PreferencesUtils.getSavePath(getApplication()) + File.separator + "video/").build();
+        DownloadConfig config = new DownloadConfig.Builder().setDownloadDir(PreferencesUtils.getSavePath(getApplication()) + File.separator + "reader/").build();
         FileDownloader.setConfig(config);
 
     }
 
-    /**
-     * 使用Tinker生成Application，这里改成静态调用
-     * @return
-     */
-    public static ApplicationComponent getAppComponent() {
-        return sAppComponent;
-    }
+
 
 }

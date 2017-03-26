@@ -50,8 +50,8 @@ public interface INewsApi {
      * @return
      */
     @Headers(CACHE_CONTROL_NETWORK)
-    @GET("nc/article/{specialId}.hmtl")
-    Observable<Map<String,SpecialInfo>> getSpecial(@Path("specialid") String specialIde);
+    @GET("nc/special/{specialId}.html")
+    Observable<Map<String, SpecialInfo>> getSpecial(@Path("specialId") String specialIde);
 
     /**
      * 获取新闻详情
@@ -82,7 +82,7 @@ public interface INewsApi {
      * @return
      */
     @Headers(CACHE_CONTROL_NETWORK)
-    @GET("photo/api/List/0096/4GJ60096.json")
+    @GET("photo/api/list/0096/4GJ60096.json")
     Observable<List<PhotoInfo>> getPhotoList();
 
     /**
@@ -103,8 +103,8 @@ public interface INewsApi {
      * @return
      */
     @Headers(CACHE_CONTROL_NETWORK)
-    @GET("recomment/getChanListNews?channel=T1456112189138&size=20")
-    Observable<Map<String,List<BeautyPhotoInfo>>> getBeautyPhoto(@Query("offset") int offset);
+    @GET("recommend/getChanListNews?channel=T1456112189138&size=20")
+    Observable<Map<String, List<BeautyPhotoInfo>>> getBeautyPhoto(@Query("offset") int offset);
 
     /**
      * 获取视频列表
